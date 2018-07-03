@@ -1,21 +1,44 @@
 <!DOCTYPE>
-<!-- This code is for demonstration purposes only.  You should not hotlink to Github, Rawgit, or files from the Cytoscape.js documentation in your production apps. -->
 <html>
   <head>
     <title>Circle demo</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <link href="style.css" rel="stylesheet" />
 
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <meta charset=utf-8 />
+
     <!-- For loading external data files -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
-
     <script src="cytoscape.min.js"></script>
 
-    <!-- for testing with local version of cytoscape.js -->
-    <!-- <script src="../cytoscape.js/build/cytoscape.js"></script> -->
   </head>
   <body>
-    <h1>Circle demo</h1>
+    <h1>Scaffold Graph Viewer</h1>
+    <fieldset>
+    <legend>Scaffold Graph Uploader</legend>
+        <input type='file' onchange="readURL(this);" />
+        <img id="blah" src="#" alt="your image" />
+        <script>
+           function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+</fieldset>
     <div id="cy"></div>
     <!-- Load application code at the end to ensure DOM is loaded -->
     <script src="code.js"></script>
