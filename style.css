@@ -18,8 +18,8 @@ body {
   position: absolute;
   overflow: hidden;
   left: 0;
-  top: 0;
-  z-index: 998;
+  top: 120px;
+  z-index: 999;
 }
 
 h1 {

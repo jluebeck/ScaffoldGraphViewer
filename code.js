@@ -9,27 +9,29 @@ function makeCyJS(data) {
         name: 'circle'
       },
 
-            style: [
-        {
-          selector: 'node',
-          style: {
-            'height': 20,
-            'width': 20,
-            'background-color': '#e8e406'
-          }
-        },
+    style: cytoscape.stylesheet()
+    .selector('node')
+      .css({
+        'content': 'data(name)',
+        'text-valign': 'below',
+        'color': 'black',
+        'background-color': 'black'
+      })
+    .selector('edge')
+      .css({
+        'curve-style': 'bezier',
+        'width': 2,
+        'line-color': 'data(lCol)',
+        'line-style': 'data(lStyle)'
+      })
+    .selector(':selected')
+      .css({
+        'background-color': 'black',
+        'line-color': 'black',
+        'target-arrow-color': 'black',
+        'source-arrow-color': 'black'
+      }),
 
-        {
-          selector: 'edge',
-          style: {
-            'curve-style': 'haystack',
-            'haystack-radius': 0,
-            'width': 5,
-            'opacity': 0.5,
-            'line-color': '#f2f08c'
-          }
-        }],
-        
       elements: data
     });
-  }
+  };
