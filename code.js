@@ -9,7 +9,7 @@ function makeCyJS(data) {
         name: 'circle'
       },
 
-      style: [
+            style: [
         {
           selector: 'node',
           style: {
@@ -28,8 +28,8 @@ function makeCyJS(data) {
             'opacity': 0.5,
             'line-color': '#f2f08c'
           }
-        }
-      ],
-      elements: JSON.parse(data)
+        }],
+        
+      elements: data
     });
   }
