@@ -6,7 +6,7 @@ function makeCyJS(data) {
       autounselectify: true,
 
       layout: {
-        name: 'cose-bilkent'
+        name: 'circle'
       },
 
     style: cytoscape.stylesheet()
