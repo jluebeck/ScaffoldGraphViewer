@@ -16,29 +16,30 @@
 
   </head>
   <body>
+    <div>
     <h1>Scaffold Graph Viewer</h1>
     <fieldset>
     <legend>Scaffold Graph Uploader</legend>
-        <input type='file' onchange="readURL(this);" />
-        <img id="blah" src="#" alt="your image" />
-        <script>
-           function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#blah')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(200);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
+      <input type='file' onchange="readURL(this);" />
+      <img id="blah" src="#" alt="your image" />
+      <script>
+     function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#blah')
+                  .attr('src', e.target.result)
+                  .width(150)
+                  .height(200);
+          };
+          reader.readAsDataURL(input.files[0]);
         }
+      }
     </script>
+    </fieldset>
 
-</fieldset>
+    </div>
+
     <div id="cy"></div>
     <!-- Load application code at the end to ensure DOM is loaded -->
     <script src="code.js"></script>
