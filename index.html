@@ -13,26 +13,31 @@
     <!-- For loading external data files -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
     <script src="cytoscape.min.js"></script>
+    <script src="code.js"></script>
+
 
   </head>
   <body>
     <div id="upld">
     <h1>Scaffold Graph Viewer</h1>
+    <p id="p1">Hello World!</p>
     <fieldset>
     <legend>Scaffold Graph File Upload</legend>
-      <input type='file' onchange="readURL(this);" />
-      <img id="data_file" src="#" alt="your JSON file" />
+      <input type='file' onchange="readText(this);" />
       <script>
-     function readURL(input) {
+     var rawText = function readText(input) {
       if (input.files && input.files[0]) {
           var reader = new FileReader();
           reader.onload = function (e) {
-            document.write(e);
+            var textFromFile = e.target.result;
+            document.getElementById("p1").innerHTML = "Uploaded";
+            return textFromFile;
 
           };
-          reader.readAsDataURL(input.files[0]);
+          reader.readAsText(input.files[0]);
         }
-      }
+      };
+      makeCyJS(rawText);
     </script>
     </fieldset>
 
@@ -40,6 +45,5 @@
 
     <div id="cy"></div>
     <!-- Load application code at the end to ensure DOM is loaded -->
-    <script src="code.js"></script>
   </body>
 </html>

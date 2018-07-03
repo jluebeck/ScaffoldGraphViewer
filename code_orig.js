@@ -1,4 +1,8 @@
-function makeCyJS(data) {
+fetch('data.json', {mode: 'no-cors'})
+  .then(function(res) {
+    return res.json()
+  })
+  .then(function(data) {
     var cy = window.cy = cytoscape({
       container: document.getElementById('cy'),
 
@@ -30,6 +34,7 @@ function makeCyJS(data) {
           }
         }
       ],
-      elements: JSON.parse(data)
+
+      elements: data
     });
-  }
+  });
