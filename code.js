@@ -19,7 +19,7 @@ function makeCyJS(data) {
       })
     .selector('edge')
       .css({
-        'label':'data(lText)'
+        'label':'data(lText)',
         'curve-style': 'bezier',
         'width': 2,
         'line-color': 'data(lCol)',
