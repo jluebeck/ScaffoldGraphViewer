@@ -13,12 +13,13 @@ function makeCyJS(data) {
     .selector('node')
       .css({
         'content': 'data(name)',
-        'text-valign': 'below',
+        'text-valign': 'above',
         'color': 'black',
         'background-color': 'black'
       })
     .selector('edge')
       .css({
+        'label':'data(lText)'
         'curve-style': 'bezier',
         'width': 2,
         'line-color': 'data(lCol)',
